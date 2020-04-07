@@ -8,6 +8,7 @@
     "nuxt": "^2.12.2"
   },
   "scripts": {
-    "dev": "nuxt dev"
+    "dev": "nuxt dev",
+    "generate": "nuxt generate"
   }
 }

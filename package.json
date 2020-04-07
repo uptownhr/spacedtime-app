@@ -3,5 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:uptownhr/spacedtime-app.git",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "nuxt": "^2.12.2"
+  },
+  "scripts": {
+    "dev": "nuxt dev"
+  }
 }

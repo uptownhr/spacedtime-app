@@ -33,7 +33,7 @@ export default {
     
       if (this.questionIndex < this.questions.length - 1) return this.questionIndex++;
 
-      this.$router.push('./')
+      this.$router.push('/')
     },
   },
 };

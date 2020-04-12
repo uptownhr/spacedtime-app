@@ -43,7 +43,6 @@ export const getters = {
   },
 
   questionsForRecall(state, getters) {
-    console.log('getters', getters);
     return getters['questionsAdded']
       .filter(q => q.answer)
       .filter(q => {

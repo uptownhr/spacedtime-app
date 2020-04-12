@@ -1,15 +1,15 @@
 <template>
   <div>
     <section>
-      <card-recall-summary 
-        :itemCount="questions.length" 
+      <card-recall-summary
+        :itemCount="questions.length"
         :nextRecallDate="nextRecallDate"
       />
     </section>
 
-<section>
-  <nuxt-link tag="button" to="/add-question">Add Custom Question</nuxt-link>
-</section>
+    <section>
+      <nuxt-link tag="button" to="/add-question">Add Custom Question</nuxt-link>
+    </section>
 
     <hr />
 
@@ -66,10 +66,10 @@ export default {
     },
 
     nextRecallDate () {
-      console.log(this.$store.getters['onboarding/nextQuestion'])
+      const nextQuestion = this.$store.getters['onboarding/nextQuestion']
 
+      if (!nextQuestion) return Date.now()
 
-      
       return new Date(this.$store.getters['onboarding/nextQuestion'].askAgainDate)
     }
   },

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <aside>
     <span>{{ currentIndex + 1 }} / {{ totalRecallCount }}</span>
-    reveal: {{ reveal }}
+    
     <h1 v-if="!reveal">{{ question.question }}</h1>
     <h1 v-else>{{ question.answer }}</h1>
 
@@ -13,7 +13,7 @@
     <button v-else @click="$emit('next')">
       Next
     </button>
-  </div>
+  </aside>
 </template>
 
 <script>

@@ -3,6 +3,7 @@
     <span>{{ questionIndex + 1 }}/{{ questions.length }}</span>
 
     <CardAnswer
+      v-if="mounted"
       :key="questionIndex"
       :question="questions[questionIndex]"
       @answer="handleNext"
@@ -18,13 +19,14 @@ export default {
   data() {
     return {
       questionIndex: 0,
+      questions: [],
+      mounted: false
     };
   },
 
-  computed: {
-    questions() {
-      return this.$store.getters['onboarding/questionsAdded'];
-    },
+  mounted () {
+    this.mounted = true
+    this.questions = this.$store.getters['onboarding/questionAnswerNeeded'];
   },
 
   methods: {

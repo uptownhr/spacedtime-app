@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <h1>You're all caught up</h1>
+  <aside>
+    <h3>You're all caught up</h3>
     <button @click="$router.push('/')">Done</button>
-  </div>
+  </aside>
 </template>
 
 <script>

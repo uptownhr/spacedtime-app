@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <h1>What would you like to remember?</h1>
 
     <div class="card-container">
@@ -12,10 +12,10 @@
       />
     </div>
 
-    <div v-if="this.cardsAdded.length > 0">
-      <button @click="next">Fill out answers</button>
+    <div v-if="cardsAdded.length > 0" class="footer-fixed">
+      <button @click="next">Fill out answers ({{cardsAdded.length}})</button>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -67,3 +67,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+</style>

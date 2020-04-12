@@ -1,6 +1,5 @@
 <template>
-  <div>
-    reaclling xxxx {{questions}}
+  <section>
     <card-recall 
       v-for="(question, index) in questions"
       v-show="index === currentIndex"
@@ -14,7 +13,7 @@
     <card-recall-finished 
       v-if="currentIndex == questions.length"
     />
-  </div>
+  </section>
 </template>
 
 <script>
@@ -26,14 +25,13 @@ export default {
 
   data () {
     return {
-      currentIndex: 0
+      currentIndex: 0,
+      questions: []
     }
   },
 
-  computed: {
-    questions () {
-      return this.$store.getters['onboarding/questionsAdded']
-    }
+  mounted () {
+    this.questions = this.$store.getters['onboarding/questionsForRecall']
   },
 
   methods: {

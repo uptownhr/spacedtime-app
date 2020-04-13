@@ -16,9 +16,9 @@ function createQuestion(question) {
   };
 }
 
-export const state = {
+export const state = () => ({
   questionsAdded: storedQuestions.map(q => createQuestion(q))
-};
+});
 
 export const mutations = {
   addQuestions(state, questions) {

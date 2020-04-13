@@ -59,7 +59,7 @@ export default {
     manifest: {
       name: 'SpacedTime App',
       lang: 'en',
-      short_name: 'SpacedTime'
+      short_name: 'SpacedTimeApp'
     }
   }
 };

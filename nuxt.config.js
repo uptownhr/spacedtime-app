@@ -2,7 +2,7 @@ export default {
   mode: 'spa',
 
   css: ['@/assets/css/mvp.css'],
-  
+
   head: {
     htmlAttrs: {
       lang: 'en'
@@ -48,5 +48,18 @@ export default {
 
       { property: 'og:image:type', content: 'image/png' }
     ]
+  },
+
+  modules: ['@nuxtjs/pwa'],
+
+  pwa: {
+    meta: {
+      name: 'SpacedTime App'
+    },
+    manifest: {
+      name: 'SpacedTime App',
+      lang: 'en',
+      short_name: 'SpacedTime'
+    }
   }
 };

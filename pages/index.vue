@@ -67,9 +67,9 @@ export default {
 
     nextRecallDate () {
       const nextQuestion = this.$store.getters['onboarding/nextQuestion']
-
-      if (!nextQuestion) return Date.now()
-
+  
+      if (!nextQuestion) return new Date()
+  
       return new Date(this.$store.getters['onboarding/nextQuestion'].askAgainDate)
     }
   },

@@ -1,8 +1,10 @@
 <template>
-  <section>
-    <h1>What would you like to remember?</h1>
+  <div>
+    <section>
+      <header>
+        <h2>What would you like to remember?</h2>
+      </header>
 
-    <div class="card-container">
       <CardQuestion
         v-for="(question, index) in questionTemplates"
         :key="index"
@@ -10,12 +12,12 @@
         :disabled="cardAdded(question)"
         @added="addCard"
       />
-    </div>
+    </section>
 
-    <div v-if="cardsAdded.length > 0" class="footer-fixed">
-      <button @click="next">Fill out answers ({{cardsAdded.length}})</button>
-    </div>
-  </section>
+    <section v-if="cardsAdded.length > 0" class="footer-fixed">
+      <button @click="next">Fill out answers ({{ cardsAdded.length }})</button>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -27,44 +29,44 @@ export default {
     return {
       questionTemplates: [
         {
-          question: "When is my mother's birthday?",
+          question: "When is my mother's birthday?"
         },
         {
-          question: 'When is my anniversary?',
+          question: 'When is my anniversary?'
         },
         {
-          question: "When is my mother's birthday?",
+          question: "When is my mother's birthday?"
         },
         {
-          question: 'When is my anniversary?',
+          question: 'When is my anniversary?'
         },
         {
-          question: "When is my mother's birthday?",
+          question: "When is my mother's birthday?"
         },
         {
-          question: 'When is my anniversary?',
-        },
+          question: 'When is my anniversary?'
+        }
       ],
 
-      cardsAdded: [],
+      cardsAdded: []
     };
   },
 
   methods: {
     addCard(card) {
-        console.log('addCard', card)
+      console.log('addCard', card);
       this.cardsAdded.push(card);
     },
 
     cardAdded(card) {
-      return this.cardsAdded.some((c) => c == card);
+      return this.cardsAdded.some(c => c == card);
     },
 
     next() {
-        this.$store.dispatch('onboarding/addQuestions', this.cardsAdded)
-        this.$router.push('answers')
-    },
-  },
+      this.$store.dispatch('onboarding/addQuestions', this.cardsAdded);
+      this.$router.push('answers');
+    }
+  }
 };
 </script>
 

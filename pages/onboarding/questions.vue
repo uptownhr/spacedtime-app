@@ -52,6 +52,10 @@ export default {
     };
   },
 
+  mounted () {
+    if (this.$store.getters['questionsAdded'].length > 0) return this.$router.push('/')
+  },
+
   methods: {
     addCard(card) {
       console.log('addCard', card);

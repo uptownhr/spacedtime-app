@@ -52,6 +52,10 @@ export default {
 
   modules: ['@nuxtjs/pwa'],
 
+  plugins: [
+    '@/plugins/clientInit.js'
+  ],
+
   pwa: {
     meta: {
       name: 'SpacedTime App'

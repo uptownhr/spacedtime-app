@@ -53,7 +53,8 @@ export default {
   modules: ['@nuxtjs/pwa'],
 
   plugins: [
-    '@/plugins/clientInit.js'
+    { src: '@/plugins/clientInit.js', mode: 'client'},
+    { src: '@/plugins/logrocket.js', mode: 'client' }
   ],
 
   pwa: {

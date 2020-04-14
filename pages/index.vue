@@ -31,32 +31,14 @@
 <script>
 import CardRecallSummary from '@/components/CardRecallSummary.vue';
 import CardQuestion from '@/components/CardQuestion.vue'
+import questionTemplates from '@/lib/questionTemplates'
 
 export default {
   components: { CardRecallSummary, CardQuestion },
 
   data () {
     return {
-      questionTemplates: [
-        {
-          question: "When is my mother's birthday?",
-        },
-        {
-          question: 'When is my anniversary?',
-        },
-        {
-          question: "When is my mother's birthday?",
-        },
-        {
-          question: 'When is my anniversary?',
-        },
-        {
-          question: "When is my mother's birthday?",
-        },
-        {
-          question: 'When is my anniversary?',
-        },
-      ],
+      questionTemplates,
     }
   },
 

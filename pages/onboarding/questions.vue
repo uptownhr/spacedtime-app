@@ -22,38 +22,20 @@
 
 <script>
 import CardQuestion from '@/components/CardQuestion';
+import questionTemplates from '@/lib/questionTemplates'
 
 export default {
   components: { CardQuestion },
   data() {
     return {
-      questionTemplates: [
-        {
-          question: "When is my mother's birthday?"
-        },
-        {
-          question: 'When is my anniversary?'
-        },
-        {
-          question: "When is my mother's birthday?"
-        },
-        {
-          question: 'When is my anniversary?'
-        },
-        {
-          question: "When is my mother's birthday?"
-        },
-        {
-          question: 'When is my anniversary?'
-        }
-      ],
-
+      questionTemplates,
       cardsAdded: []
     };
   },
 
-  mounted () {
-    if (this.$store.getters['questionsAdded'].length > 0) return this.$router.push('/')
+  mounted() {
+    if (this.$store.getters['onboarding/questionsAdded'].length > 0)
+      return this.$router.push('/');
   },
 
   methods: {

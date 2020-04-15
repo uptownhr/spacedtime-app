@@ -44,7 +44,7 @@ export default {
       console.log('addCard', card);
       this.cardsAdded.push(card);
       
-      track('question-added', card.question)
+      track('question-added', {question: card})
     },
 
     cardAdded(card) {

@@ -23,6 +23,7 @@
 <script>
 import CardQuestion from '@/components/CardQuestion';
 import questionTemplates from '@/lib/questionTemplates'
+import {track} from '@/lib/track'
 
 export default {
   components: { CardQuestion },
@@ -42,8 +43,8 @@ export default {
     addCard(card) {
       console.log('addCard', card);
       this.cardsAdded.push(card);
-
-
+      
+      track('question-added', card.question)
     },
 
     cardAdded(card) {

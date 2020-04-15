@@ -58,6 +58,7 @@ export default {
 
   methods: {
     addCard (question) {
+      track('question-added', question.question)
       this.$store.dispatch('onboarding/addQuestions', [question])
       this.$router.push('/onboarding/answers')
     },

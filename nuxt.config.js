@@ -1,4 +1,10 @@
+require('dotenv').config()
+
 export default {
+  env: {
+    HEAP: process.env.HEAP
+  },
+
   mode: 'spa',
 
   css: ['@/assets/css/mvp.css'],

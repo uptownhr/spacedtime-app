@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <span>{{ questionIndex + 1 }}/{{ questions.length }}</span>
+  <section>
+    <header>
+      <span>{{ questionIndex + 1 }}/{{ questions.length }}</span>
+    </header>
 
     <CardAnswer
       v-if="mounted"
@@ -8,7 +10,7 @@
       :question="questions[questionIndex]"
       @answer="handleNext"
     />
-  </div>
+  </section>
 </template>
 
 <script>

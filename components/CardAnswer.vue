@@ -1,11 +1,11 @@
 <template>
-  <div class="card">
+  <aside>
     <h2>{{ question.question }}</h2>
     
     <input v-model="answer" type="text" />
 
     <button :disabled="!answer" @click="handleNext(question, answer)">Next</button>
-  </div>
+  </aside>
 </template>
 
 <script>

@@ -42,6 +42,8 @@ export default {
     addCard(card) {
       console.log('addCard', card);
       this.cardsAdded.push(card);
+
+
     },
 
     cardAdded(card) {
@@ -50,7 +52,7 @@ export default {
 
     next() {
       this.$store.dispatch('onboarding/addQuestions', this.cardsAdded);
-      this.$router.push('answers');
+      this.$router.push('./answers');
     }
   }
 };

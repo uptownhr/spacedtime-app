@@ -67,5 +67,9 @@ export default {
       lang: 'en',
       short_name: 'SpacedTimeApp'
     }
+  },
+
+  generate: {
+    subFolders: false
   }
 };

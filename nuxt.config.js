@@ -54,7 +54,8 @@ export default {
 
   plugins: [
     { src: '@/plugins/clientInit.js', mode: 'client'},
-    { src: '@/plugins/logrocket.js', mode: 'client' }
+    { src: '@/plugins/logrocket.js', mode: 'client' },
+    { src: '@/plugins/heap.js', mode: 'client' }
   ],
 
   pwa: {

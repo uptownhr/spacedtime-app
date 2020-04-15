@@ -30,42 +30,45 @@
 
 <script>
 import CardRecallSummary from '@/components/CardRecallSummary.vue';
-import CardQuestion from '@/components/CardQuestion.vue'
-import questionTemplates from '@/lib/questionTemplates'
+import CardQuestion from '@/components/CardQuestion.vue';
+import questionTemplates from '@/lib/questionTemplates';
+import { track } from '@/lib/track';
 
 export default {
   components: { CardRecallSummary, CardQuestion },
 
-  data () {
+  data() {
     return {
       questionTemplates,
-    }
+    };
   },
 
   computed: {
     questions() {
-      return this.$store.getters['onboarding/questionsForRecall']
+      return this.$store.getters['onboarding/questionsForRecall'];
     },
 
-    nextRecallDate () {
-      const nextQuestion = this.$store.getters['onboarding/nextQuestion']
-  
-      if (!nextQuestion) return new Date()
-  
-      return new Date(this.$store.getters['onboarding/nextQuestion'].askAgainDate)
-    }
+    nextRecallDate() {
+      const nextQuestion = this.$store.getters['onboarding/nextQuestion'];
+
+      if (!nextQuestion) return new Date();
+
+      return new Date(
+        this.$store.getters['onboarding/nextQuestion'].askAgainDate
+      );
+    },
   },
 
   methods: {
-    addCard (question) {
-      track('question-added', question.question)
-      this.$store.dispatch('onboarding/addQuestions', [question])
-      this.$router.push('/onboarding/answers')
+    addCard(question) {
+      track('question-added', question.question);
+      this.$store.dispatch('onboarding/addQuestions', [question]);
+      this.$router.push('/onboarding/answers');
     },
 
-    cardAdded (question) {
-      return false
-    }
-  }
+    cardAdded(question) {
+      return false;
+    },
+  },
 };
 </script>

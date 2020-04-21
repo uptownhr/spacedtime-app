@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { track } from '@/lib/track';
+
 export default {
   props: {
     question: Object,
@@ -41,6 +43,8 @@ export default {
         question: this.question,
         streak: this.question.streak + streakModifier
       });
+
+      track('question-recalled', {streak: this.question.streak + streakModifier})
     }
   }
 };

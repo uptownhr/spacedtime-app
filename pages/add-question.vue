@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <h1>Add a question</h1>
+  <section>
+    <header>
+      <h1>Add a question</h1>
+    </header>
 
     <form @submit.prevent="submit(form)">
       <label>Question</label>
@@ -9,7 +11,7 @@
       <input v-model="form.answer" type="answer" />
       <button>Add</button>
     </form>
-  </div>
+  </section>
 </template>
 
 

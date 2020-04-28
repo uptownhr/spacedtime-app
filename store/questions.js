@@ -49,6 +49,13 @@ export const state = () => ({
 });
 
 export const mutations = {
+  delete (state, id) {
+    delete state._byId[id]
+
+    const index = state.questions.findIndex(q => q.id == id)
+    state.questions.splice(index, 1)
+  },
+
   addQuestions(state, questions) {
     const newQuestions = questions.map((q) => createQuestion(q));
     console.log(...newQuestions)
@@ -57,6 +64,13 @@ export const mutations = {
     newQuestions.forEach((q) => {
       state._byId[q.id] = q;
     });
+  },
+  
+  saveQuestionAnswer(state, {id, question, answer}){
+    const q = state._byId[id]
+
+    q.question = question
+    q.answer = answer
   },
 
   saveAnswer(state, { id, answer }) {
@@ -78,6 +92,12 @@ export const mutations = {
 };
 
 export const getters = {
+  byId (state) {
+    return (id) => {
+      return state._byId[id]
+    }
+  },
+
   questionsAdded(state) {
     return state.questions;
   },
@@ -114,6 +134,12 @@ export const actions = {
     saveToLocalStorage(state.questions);
   },
 
+  saveQuestionAnswer({commit, state}, {id, question, answer}) {
+    commit('saveQuestionAnswer', {id, question, answer})
+
+    saveToLocalStorage(state.questions);
+  },
+
   saveAnswer({ commit, state }, { id, answer }) {
     commit('saveAnswer', { id, answer });
     
@@ -127,9 +153,13 @@ export const actions = {
     commit('setQuestionStreak', { id, streak, askAgainDate });
 
     saveToLocalStorage(state.questions);
-
-    console.log(state.questions, state._byId)
   },
+
+  delete ({commit}, {id}) {
+    commit('delete', id)
+
+    saveToLocalStorage(state.questions);
+  }
 };
 
 function saveToLocalStorage(questions) {

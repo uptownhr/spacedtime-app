@@ -14,7 +14,7 @@ function getLocalStorageQuestions () {
     json = []
   }
 
-  return json
+  return json || []
 }
 
 const storedQuestions = getLocalStorageQuestions()

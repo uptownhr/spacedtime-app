@@ -5,6 +5,8 @@ import uuid from 'uuid/v4'
 function getLocalStorageQuestions () {
   const data = localStorage.getItem('questionsAdded');
 
+  if (!data) return []
+
   let json
 
   try {
@@ -14,7 +16,7 @@ function getLocalStorageQuestions () {
     json = []
   }
 
-  return json || []
+  return json
 }
 
 const storedQuestions = getLocalStorageQuestions()

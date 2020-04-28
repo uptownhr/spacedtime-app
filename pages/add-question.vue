@@ -3,7 +3,9 @@
     <h1>Add a question</h1>
 
     <form @submit.prevent="submit(form)">
+      <label>Question</label>
       <input v-model="form.question" type="quesiton" />
+      <label>Answer</label>
       <input v-model="form.answer" type="answer" />
       <button>Add</button>
     </form>
@@ -24,7 +26,7 @@ export default {
 
   methods: {
     submit ({question, answer}) {
-      this.$store.dispatch('onboarding/addQuestions', [{question, answer}])
+      this.$store.dispatch('questions/addQuestions', [{question, answer}])
       this.$router.push('/')
     }
   }

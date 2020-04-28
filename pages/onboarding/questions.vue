@@ -35,7 +35,7 @@ export default {
   },
 
   mounted() {
-    if (this.$store.getters['onboarding/questionsAdded'].length > 0)
+    if (this.$store.getters['questions/questionsAdded'].length > 0)
       return this.$router.push('/');
   },
 
@@ -52,7 +52,7 @@ export default {
     },
 
     next() {
-      this.$store.dispatch('onboarding/addQuestions', this.cardsAdded);
+      this.$store.dispatch('questions/addQuestions', this.cardsAdded);
       this.$router.push('./answers');
     }
   }

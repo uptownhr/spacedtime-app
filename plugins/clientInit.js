@@ -6,7 +6,7 @@ export default ({ store }) => {
   let lastQuestion = null;
 
   checkRecallIntervalId = setInterval(() => {
-    const questions = store.getters['onboarding/questionsForRecall'];
+    const questions = store.getters['questions/questionsForRecall'];
 
     recallCount = questions.length;
 

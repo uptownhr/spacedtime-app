@@ -1,7 +1,7 @@
 <template>
   <aside>
     <span>{{ currentIndex + 1 }} / {{ totalRecallCount }}</span>
-    
+
     <h1 v-if="!reveal">{{ question.question }}</h1>
     <h1 v-else>{{ question.answer }}</h1>
 
@@ -23,29 +23,31 @@ export default {
   props: {
     question: Object,
     currentIndex: Number,
-    totalRecallCount: Number
+    totalRecallCount: Number,
   },
 
   data() {
     return {
       reveal: false,
-      submitted: false
+      submitted: false,
     };
   },
 
   methods: {
     handleResult(result) {
-      const streakModifier = result ? 1 : -1
+      const streakModifier = result ? 1 : -1;
 
-      this.submitted = true
+      this.submitted = true;
 
-      this.$store.dispatch('onboarding/setQuestionStreak', {
-        question: this.question,
-        streak: this.question.streak + streakModifier
+      this.$store.dispatch('questions/setQuestionStreak', {
+        id: this.question.id,
+        streak: this.question.streak + streakModifier,
       });
 
-      track('question-recalled', {streak: this.question.streak + streakModifier})
-    }
-  }
+      track('question-recalled', {
+        streak: this.question.streak + streakModifier,
+      });
+    },
+  },
 };
 </script>

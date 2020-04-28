@@ -28,12 +28,12 @@ export default {
 
   mounted () {
     this.mounted = true
-    this.questions = this.$store.getters['onboarding/questionAnswerNeeded'];
+    this.questions = this.$store.getters['questions/questionAnswerNeeded'];
   },
 
   methods: {
     handleNext({ question, answer }) {
-      this.$store.dispatch('onboarding/saveAnswer', { question, answer });
+      this.$store.dispatch('questions/saveAnswer', { id: question.id, answer });
     
       if (this.questionIndex < this.questions.length - 1) return this.questionIndex++;
 

@@ -37,32 +37,31 @@ import { track } from '@/lib/track';
 export default {
   components: { CardRecallSummary, CardQuestion },
 
-  data() {
-    return {
-      questionTemplates,
-    };
-  },
-
   computed: {
     questions() {
-      return this.$store.getters['onboarding/questionsForRecall'];
+      return this.$store.getters['questions/questionsForRecall'];
     },
 
     nextRecallDate() {
-      const nextQuestion = this.$store.getters['onboarding/nextQuestion'];
+      const nextQuestion = this.$store.getters['questions/nextQuestion'];
 
       if (!nextQuestion) return new Date();
 
       return new Date(
-        this.$store.getters['onboarding/nextQuestion'].askAgainDate
+        this.$store.getters['questions/nextQuestion'].askAgainDate
       );
     },
+
+    questionTemplates () {  
+      return questionTemplates
+      .filter(q => !this.$store.state.questions._byId[q.id])
+    }
   },
 
   methods: {
     addCard(question) {
       track('question-added', question);
-      this.$store.dispatch('onboarding/addQuestions', [question]);
+      this.$store.dispatch('questions/addQuestions', [question]);
       this.$router.push('/onboarding/answers');
     },
 

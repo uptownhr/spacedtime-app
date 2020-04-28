@@ -26,7 +26,7 @@ export default {
 
       this.submitted = true
 
-      this.$store.dispatch('onboarding/setQuestionStreak', {
+      this.$store.dispatch('questions/setQuestionStreak', {
         question: this.question,
         streak: this.question.streak + streakModifier
       });

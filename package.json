@@ -10,7 +10,8 @@
     "dotenv": "^8.2.0",
     "fibonacci": "^1.6.7",
     "logrocket": "^1.0.7",
-    "nuxt": "^2.12.2"
+    "nuxt": "^2.12.2",
+    "uuid": "^7.0.3"
   },
   "scripts": {
     "dev": "nuxt dev",

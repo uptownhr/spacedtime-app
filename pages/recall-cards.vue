@@ -31,7 +31,7 @@ export default {
   },
 
   mounted () {
-    this.questions = this.$store.getters['onboarding/questionsForRecall']
+    this.questions = this.$store.getters['questions/questionsForRecall']
   },
 
   methods: {
